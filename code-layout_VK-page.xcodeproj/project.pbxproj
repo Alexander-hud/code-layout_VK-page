@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		79EE5DB0283A6D45000F7EA9 /* view_verstka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = view_verstka.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		79EE5DB0283A6D45000F7EA9 /* code-layout_VK-page.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "code-layout_VK-page.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		79EE5DB3283A6D45000F7EA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79EE5DB5283A6D45000F7EA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		79EE5DB7283A6D45000F7EA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		79EE5DB1283A6D45000F7EA9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				79EE5DB0283A6D45000F7EA9 /* view_verstka.app */,
+				79EE5DB0283A6D45000F7EA9 /* code-layout_VK-page.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		79EE5DAF283A6D45000F7EA9 /* view_verstka */ = {
+		79EE5DAF283A6D45000F7EA9 /* code-layout_VK-page */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 79EE5DC4283A6D46000F7EA9 /* Build configuration list for PBXNativeTarget "view_verstka" */;
+			buildConfigurationList = 79EE5DC4283A6D46000F7EA9 /* Build configuration list for PBXNativeTarget "code-layout_VK-page" */;
 			buildPhases = (
 				79EE5DAC283A6D45000F7EA9 /* Sources */,
 				79EE5DAD283A6D45000F7EA9 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = view_verstka;
+			name = "code-layout_VK-page";
 			productName = view_verstka;
-			productReference = 79EE5DB0283A6D45000F7EA9 /* view_verstka.app */;
+			productReference = 79EE5DB0283A6D45000F7EA9 /* code-layout_VK-page.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 79EE5DAB283A6D45000F7EA9 /* Build configuration list for PBXProject "view_verstka" */;
+			buildConfigurationList = 79EE5DAB283A6D45000F7EA9 /* Build configuration list for PBXProject "code-layout_VK-page" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				79EE5DAF283A6D45000F7EA9 /* view_verstka */,
+				79EE5DAF283A6D45000F7EA9 /* code-layout_VK-page */,
 			);
 		};
 /* End PBXProject section */
@@ -339,7 +339,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		79EE5DAB283A6D45000F7EA9 /* Build configuration list for PBXProject "view_verstka" */ = {
+		79EE5DAB283A6D45000F7EA9 /* Build configuration list for PBXProject "code-layout_VK-page" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				79EE5DC2283A6D46000F7EA9 /* Debug */,
@@ -348,7 +348,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		79EE5DC4283A6D46000F7EA9 /* Build configuration list for PBXNativeTarget "view_verstka" */ = {
+		79EE5DC4283A6D46000F7EA9 /* Build configuration list for PBXNativeTarget "code-layout_VK-page" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				79EE5DC5283A6D46000F7EA9 /* Debug */,
