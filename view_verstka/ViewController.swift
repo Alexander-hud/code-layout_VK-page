@@ -26,7 +26,6 @@ class ViewController: UIViewController  {
         image.layer.borderColor = UIColor.black.cgColor
         image.layer.cornerRadius = image.frame.height/2
         image.clipsToBounds = true
-        
         return image
     }()
 
@@ -42,11 +41,24 @@ class ViewController: UIViewController  {
     private lazy var labelStatus: UILabel = {
         let label = UILabel()
         label.text = Strings.status
-        label.textColor = .blue
+        label.textColor = UIColor(red: 131, green: 168, blue: 229)
         label.textAlignment = .left
         label.font = .boldSystemFont(ofSize: Metric.lavelStatus)
         return label
     }()
+    
+    private lazy var labelStatusNetwork: UILabel = {
+        let label = UILabel()
+        label.text = Strings.statusNetwork
+        label.textColor = UIColor(red: 122, green: 122, blue: 124)
+        label.textAlignment = .left
+        label.font = .boldSystemFont(ofSize: Metric.lavelStatus)
+        
+        return label
+    }()
+    
+    private lazy var buttonEdit = createButton(with: "Редактировать", titleColor: .white, background: .darkGray)
+  
 
 // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -62,34 +74,47 @@ class ViewController: UIViewController  {
         perentStackView.addArrangedSubview(imageProfile)
         perentStackView.addArrangedSubview(labelFullName)
         perentStackView.addArrangedSubview(labelStatus)
+        perentStackView.addArrangedSubview(labelStatusNetwork)
+        view.addSubview(buttonEdit)
     }
 
     private func setupView() {
        view.backgroundColor = .black
     }
+    
+    private func createButton(with title: String, titleColor: UIColor, background: UIColor) -> UIButton {
+        let button = UIButton(type: .system)
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(titleColor, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 30, weight: .medium)
+        button.backgroundColor = background
+        
+        return button
+    }
+    
     private func setupLayout() {
+        imageProfile.translatesAutoresizingMaskIntoConstraints = true
+        imageProfile.bottomAnchor.constraint(equalTo: perentStackView.bottomAnchor, constant: 0).isActive = true
+        
         perentStackView.translatesAutoresizingMaskIntoConstraints = false
         perentStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 18).isActive = true
         perentStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -18).isActive = true
         perentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5).isActive = true
         
-        labelFullName.topAnchor.constraint(equalTo: view.topAnchor, constant: 65).isActive = true
-        labelFullName.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -18).isActive = true
+        labelFullName.topAnchor.constraint(equalTo: perentStackView.topAnchor, constant: 6).isActive = true
+        
+        labelFullName.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -36).isActive = true
         labelFullName.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 115).isActive = true
         
-        
-//        labelStatus.topAnchor.constraint(equalTo: view.topAnchor, constant: 65).isActive = true
-//        labelStatus.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -18).isActive = true
-//        labelStatus.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 115).isActive = true
+        labelStatus.topAnchor.constraint(equalTo: labelFullName.bottomAnchor, constant: 6).isActive = true
+        labelStatus.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -36).isActive = true
+        labelStatus.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 115).isActive = true
        
+        labelStatusNetwork.topAnchor.constraint(equalTo: labelStatus.bottomAnchor, constant: 6).isActive = true
+        labelStatusNetwork.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -36).isActive = true
+        labelStatusNetwork.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 115).isActive = true
         
-        
-        
-        imageProfile.translatesAutoresizingMaskIntoConstraints = true
-//        imageProfile.center = CGPoint(x: 100, y: 150)
-//        imageProfile.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        imageProfile.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        
+        buttonEdit.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
     }
 
 }
@@ -110,6 +135,24 @@ extension ViewController {
         static let statusNetwork = "online"
 
     }
+}
+
+extension UIColor {
+   convenience init(red: Int, green: Int, blue: Int) {
+       assert(red >= 0 && red <= 255, "Invalid red component")
+       assert(green >= 0 && green <= 255, "Invalid green component")
+       assert(blue >= 0 && blue <= 255, "Invalid blue component")
+
+       self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+   }
+
+   convenience init(rgb: Int) {
+       self.init(
+           red: (rgb >> 16) & 0xFF,
+           green: (rgb >> 8) & 0xFF,
+           blue: rgb & 0xFF
+       )
+   }
 }
 // MARK: - START
 //class ViewController: UIViewController {
