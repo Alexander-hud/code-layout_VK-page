@@ -53,11 +53,10 @@ class ViewController: UIViewController  {
         label.textColor = UIColor(red: 122, green: 122, blue: 124)
         label.textAlignment = .left
         label.font = .boldSystemFont(ofSize: Metric.lavelStatus)
-        
         return label
     }()
     
-    private lazy var buttonEdit = createButton(with: "Редактировать", titleColor: .white, background: .darkGray)
+    private lazy var buttonEdit = createButton(with: Strings.textButton, titleColor: .white, background: .darkGray)
   
 
 // MARK: - Lifecycle
@@ -86,8 +85,9 @@ class ViewController: UIViewController  {
         let button = UIButton(type: .system)
         button.setTitle(title, for: .normal)
         button.setTitleColor(titleColor, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 30, weight: .medium)
+        button.titleLabel?.font = .systemFont(ofSize: Metric.buttonTextSize, weight: .medium)
         button.backgroundColor = background
+        button.layer.cornerRadius = 10
         
         return button
     }
@@ -114,7 +114,13 @@ class ViewController: UIViewController  {
         labelStatusNetwork.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -36).isActive = true
         labelStatusNetwork.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 115).isActive = true
         
-        buttonEdit.topAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        buttonEdit.translatesAutoresizingMaskIntoConstraints = false
+        buttonEdit.widthAnchor.constraint(equalToConstant: .greatestFiniteMagnitude).isActive = true
+        buttonEdit.topAnchor.constraint(equalTo: labelStatusNetwork.bottomAnchor, constant: 6).isActive = true
+        buttonEdit.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 18).isActive = true
+        buttonEdit.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -18).isActive = true
+        
+        
     }
 
 }
@@ -127,12 +133,14 @@ extension ViewController {
         static let lavelStatus: CGFloat = 14
         static let labelFullNameSize: CGFloat = 18
         static let parentStackViewSpacing: CGFloat = 30
+        static let buttonTextSize: CGFloat = 18
     }
 
     enum Strings {
         static let profileName = "Александр Алёшин"
         static let status = "Установить статус"
         static let statusNetwork = "online"
+        static let textButton = "Редактировать"
 
     }
 }
@@ -154,152 +162,3 @@ extension UIColor {
        )
    }
 }
-// MARK: - START
-//class ViewController: UIViewController {
-//
-//    private lazy var resultLabel: UILabel = {
-//        let label = UILabel()
-//
-//        label.text = "Александр Алешин"
-//        label.font = .systemFont(ofSize: Metric.resultFontSize, weight: .light)
-//        label.textColor = .white
-//        label.textAlignment = .center
-//
-//        return label
-//    }()
-//
-//    private lazy var perentStackView: UIStackView = {
-//       let stackView = UIStackView()
-//        stackView.axis =  .vertical
-//        stackView.spacing = Metric.parentStackViewSpacing
-//
-//        return stackView
-//    }()
-//
-//    private lazy var buttonsStackView: UIStackView = {
-//       let stackView = UIStackView()
-//        stackView.axis =  .vertical
-//        stackView.spacing = Metric.buttonsStackViewSpacing
-//        stackView.distribution = .fillEqually
-//        return stackView
-//    }()
-//
-//
-//
-//    private lazy var clearButton = createButton(with: "AC", titleColor: .black , backgroundColor: .lightGray)
-//    private lazy var plusMinusButton = createButton(with: "+/-", titleColor: .black , backgroundColor: .lightGray)
-//    private lazy var pertsentButton = createButton(with: "%", titleColor: .black , backgroundColor: .lightGray)
-//    private lazy var divisionButton = createButton(with: "/", titleColor: .white , backgroundColor: .systemOrange)
-//    private lazy var firstStackView = createHorizontalStackView()
-//
-//    private lazy var sevenButton = createButton(with: "7", titleColor: .white , backgroundColor: .darkGray)
-//    private lazy var eightButton = createButton(with: "8", titleColor: .white , backgroundColor: .darkGray)
-//    private lazy var nineButton = createButton(with: "9", titleColor: .white , backgroundColor: .darkGray)
-//    private lazy var multiplayButton = createButton(with: "x", titleColor: .white , backgroundColor: .systemOrange)
-//    private lazy var secondStackView = createHorizontalStackView()
-//
-//    private lazy var freeStackView = createHorizontalStackView()
-//
-//
-//    // MARK: - Lifecycle
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        // вызываем весь наш код перед щагрузкой вьюхи
-//        setupHierarchy()
-//        setupLayout()
-//        setupView()
-//
-//    }
-//
-//    // MARK: - Settings
-//
-//    private func setupHierarchy() {
-//        view.addSubview(perentStackView)
-//        // добавляем в view сам label and button
-//
-//        perentStackView.addArrangedSubview(resultLabel)
-//        perentStackView.addArrangedSubview(buttonsStackView)
-//
-//        buttonsStackView.addArrangedSubview(firstStackView)
-//
-//        firstStackView.addArrangedSubview(clearButton)
-//        firstStackView.addArrangedSubview(plusMinusButton)
-//        firstStackView.addArrangedSubview(pertsentButton)
-//        firstStackView.addArrangedSubview(divisionButton)
-//
-//        buttonsStackView.addArrangedSubview(secondStackView)
-//
-//        secondStackView.addArrangedSubview(sevenButton)
-//        secondStackView.addArrangedSubview(eightButton)
-//        secondStackView.addArrangedSubview(nineButton)
-//        secondStackView.addArrangedSubview(multiplayButton)
-//
-//    }
-//
-//    private func setupLayout() {
-//        // параметры label 0
-//        perentStackView.translatesAutoresizingMaskIntoConstraints = false
-//        perentStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Metric.leftOffset).isActive = true
-//        perentStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.rightOffset).isActive = true
-//        perentStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: Metric.bottomOffset).isActive = true
-//        firstStackView.heightAnchor.constraint(equalToConstant: Metric.buttonHeight).isActive = true
-//
-//    }
-//
-//    private func setupView() {
-//        // фон
-//        view.backgroundColor = .black
-//    }
-//
-//    // MARK: - Private functions
-//
-//    // создание кнопок
-//    private func createButton(with title: String, titleColor: UIColor, backgroundColor: UIColor) -> UIButton {
-//        let button = UIButton(type: .system)
-//
-//        button.setTitle(title, for: .normal)
-//        button.setTitleColor(titleColor, for: .normal)
-//        button.titleLabel?.font = .systemFont(ofSize: Metric.resultFontSize, weight: .medium)
-//        button.backgroundColor = backgroundColor
-//
-//        button.layer.masksToBounds = true
-//        button.layer.cornerRadius = Metric.buttonHeight / 2
-//
-//        button.widthAnchor.constraint(equalTo: button.heightAnchor, multiplier: 1).isActive = true
-//
-//        return button
-//    }
-//
-//    private func createHorizontalStackView() -> UIStackView {
-//        let stackView = UIStackView()
-//
-//        stackView.axis = .horizontal
-//        stackView.distribution = .equalSpacing
-//
-//        return stackView
-//    }
-//}
-//// MARK: - Constants
-//
-//extension ViewController {
-//    // зашитые в класс новые параметры кнопки
-//    enum Metric {
-//        static let buttonHeight: CGFloat = 75
-//
-//        static let parentStackViewSpacing: CGFloat = 30
-//        static let buttonsStackViewSpacing: CGFloat = 15
-//        static let resultFontSize: CGFloat = 14
-//        static let buttonFontSize: CGFloat = 30
-//
-//        static let leftOffset: CGFloat = 18
-//        static let rightOffset: CGFloat = -18
-//        static let bottomOffset: CGFloat = -50
-//
-//    }
-//
-//    enum Strings {
-//
-//    }
-//}
-//// MARK: - END
