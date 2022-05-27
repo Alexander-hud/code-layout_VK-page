@@ -54,8 +54,6 @@ class ViewController: UIViewController  {
     }()
     
     private lazy var buttonEdit = createButton(with: Strings.textButton, titleColor: .white, background: .darkGray)
-    
-//    private lazy var tabbar = tabBar()
   
 
 // MARK: - Lifecycle
@@ -74,18 +72,13 @@ class ViewController: UIViewController  {
         perentStackView.addArrangedSubview(labelStatus)
         perentStackView.addArrangedSubview(labelStatusNetwork)
         view.addSubview(buttonEdit)
-//        view.addSubview(tabbar)
     }
 
     private func setupView() {
        view.backgroundColor = .black
     }
     
-//    private func tabBar() -> UITabBarItem {
-//        var tabBar = UITabBarItem()
-//        tabBar = UITabBarItem(title: "Name", image: UIImage(named: "profile"), selectedImage: UIImage(named: "otherImage.png"))
-//        return tabBar
-//    }
+    
     
     private func createButton(with title: String, titleColor: UIColor, background: UIColor) -> UIButton {
         let button = UIButton(type: .system)
@@ -106,11 +99,12 @@ class ViewController: UIViewController  {
         perentStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Metric.pSVLeadingAnchor).isActive = true
         perentStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Metric.pSVtrailingAnchor).isActive = true
         perentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Metric.pSVtopAnchor).isActive = true
+        perentStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: Metric.buttonRightAnchor).isActive = true
         
         labelFullName.topAnchor.constraint(equalTo: perentStackView.topAnchor, constant: Metric.labelTopAnchor).isActive = true
-        
         labelFullName.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.labelTopAnchor).isActive = true
         labelFullName.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Metric.labelLeftAnchor).isActive = true
+        labelFullName.rightAnchor.constraint(equalTo: view.rightAnchor, constant: Metric.labelTrailingAnchor).isActive = true
         
         labelStatus.topAnchor.constraint(equalTo: labelFullName.bottomAnchor, constant: Metric.labelTopAnchor).isActive = true
         labelStatus.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.labelTrailingAnchor).isActive = true
@@ -122,11 +116,9 @@ class ViewController: UIViewController  {
         
         buttonEdit.translatesAutoresizingMaskIntoConstraints = false
         buttonEdit.widthAnchor.constraint(equalToConstant: .greatestFiniteMagnitude).isActive = true
-        buttonEdit.topAnchor.constraint(equalTo: labelStatusNetwork.bottomAnchor, constant: 15).isActive = true
+        buttonEdit.topAnchor.constraint(equalTo: labelStatusNetwork.bottomAnchor, constant: Metric.buttonTopAnchor).isActive = true
         buttonEdit.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Metric.buttonLeftAnchor).isActive = true
         buttonEdit.rightAnchor.constraint(equalTo: view.rightAnchor, constant: Metric.buttonRightAnchor).isActive = true
-        
-        
         
     }
 
@@ -161,6 +153,7 @@ extension ViewController {
         static let labelLeftAnchor: CGFloat = 115
         static let buttonLeftAnchor: CGFloat = 18
         static let buttonRightAnchor: CGFloat = -18
+        static let buttonTopAnchor: CGFloat = 15
     }
 
     enum Strings {
