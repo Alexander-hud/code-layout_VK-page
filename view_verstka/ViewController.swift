@@ -4,9 +4,6 @@
 //
 //  Created by Александр Алешин on 22.05.2022.
 //
-/*
- 1 создать пространство вью
- */
 import UIKit
 
 class ViewController: UIViewController  {
@@ -19,9 +16,9 @@ class ViewController: UIViewController  {
     }()
     
     private lazy var imageProfile: UIImageView = {
-        var image = UIImageView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-        image.image = UIImage(named: "profile")
-        image.layer.borderWidth = 1
+        var image = UIImageView(frame: CGRect(x: Metric.uIImageViewX, y: Metric.uIImageViewY, width: Metric.uIImageViewWidth, height: Metric.uIImageViewHeight))
+        image.image = UIImage(named: Strings.nameImage)
+        image.layer.borderWidth = Metric.imageBorderWidth
         image.layer.masksToBounds = false
         image.layer.borderColor = UIColor.black.cgColor
         image.layer.cornerRadius = image.frame.height/2
@@ -41,7 +38,7 @@ class ViewController: UIViewController  {
     private lazy var labelStatus: UILabel = {
         let label = UILabel()
         label.text = Strings.status
-        label.textColor = UIColor(red: 131, green: 168, blue: 229)
+        label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
         label.textAlignment = .left
         label.font = .boldSystemFont(ofSize: Metric.lavelStatus)
         return label
@@ -50,13 +47,15 @@ class ViewController: UIViewController  {
     private lazy var labelStatusNetwork: UILabel = {
         let label = UILabel()
         label.text = Strings.statusNetwork
-        label.textColor = UIColor(red: 122, green: 122, blue: 124)
+        label.textColor = UIColor(red: Metric.labelStatusNColorRed, green: Metric.labelStatusNColorGreen, blue: Metric.labelStatusNColorBlue)
         label.textAlignment = .left
         label.font = .boldSystemFont(ofSize: Metric.lavelStatus)
         return label
     }()
     
     private lazy var buttonEdit = createButton(with: Strings.textButton, titleColor: .white, background: .darkGray)
+    
+//    private lazy var tabbar = tabBar()
   
 
 // MARK: - Lifecycle
@@ -75,11 +74,18 @@ class ViewController: UIViewController  {
         perentStackView.addArrangedSubview(labelStatus)
         perentStackView.addArrangedSubview(labelStatusNetwork)
         view.addSubview(buttonEdit)
+//        view.addSubview(tabbar)
     }
 
     private func setupView() {
        view.backgroundColor = .black
     }
+    
+//    private func tabBar() -> UITabBarItem {
+//        var tabBar = UITabBarItem()
+//        tabBar = UITabBarItem(title: "Name", image: UIImage(named: "profile"), selectedImage: UIImage(named: "otherImage.png"))
+//        return tabBar
+//    }
     
     private func createButton(with title: String, titleColor: UIColor, background: UIColor) -> UIButton {
         let button = UIButton(type: .system)
@@ -87,7 +93,7 @@ class ViewController: UIViewController  {
         button.setTitleColor(titleColor, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: Metric.buttonTextSize, weight: .medium)
         button.backgroundColor = background
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = Metric.buttonRadius
         
         return button
     }
@@ -97,28 +103,29 @@ class ViewController: UIViewController  {
         imageProfile.bottomAnchor.constraint(equalTo: perentStackView.bottomAnchor, constant: 0).isActive = true
         
         perentStackView.translatesAutoresizingMaskIntoConstraints = false
-        perentStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 18).isActive = true
-        perentStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -18).isActive = true
-        perentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 5).isActive = true
+        perentStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Metric.pSVLeadingAnchor).isActive = true
+        perentStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -Metric.pSVtrailingAnchor).isActive = true
+        perentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Metric.pSVtopAnchor).isActive = true
         
-        labelFullName.topAnchor.constraint(equalTo: perentStackView.topAnchor, constant: 6).isActive = true
+        labelFullName.topAnchor.constraint(equalTo: perentStackView.topAnchor, constant: Metric.labelTopAnchor).isActive = true
         
-        labelFullName.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -36).isActive = true
-        labelFullName.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 115).isActive = true
+        labelFullName.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.labelTopAnchor).isActive = true
+        labelFullName.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Metric.labelLeftAnchor).isActive = true
         
-        labelStatus.topAnchor.constraint(equalTo: labelFullName.bottomAnchor, constant: 6).isActive = true
-        labelStatus.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -36).isActive = true
-        labelStatus.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 115).isActive = true
+        labelStatus.topAnchor.constraint(equalTo: labelFullName.bottomAnchor, constant: Metric.labelTopAnchor).isActive = true
+        labelStatus.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.labelTrailingAnchor).isActive = true
+        labelStatus.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Metric.labelLeftAnchor).isActive = true
        
-        labelStatusNetwork.topAnchor.constraint(equalTo: labelStatus.bottomAnchor, constant: 6).isActive = true
-        labelStatusNetwork.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -36).isActive = true
-        labelStatusNetwork.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 115).isActive = true
+        labelStatusNetwork.topAnchor.constraint(equalTo: labelStatus.bottomAnchor, constant: Metric.labelTopAnchor).isActive = true
+        labelStatusNetwork.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.labelTrailingAnchor).isActive = true
+        labelStatusNetwork.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Metric.labelLeftAnchor).isActive = true
         
         buttonEdit.translatesAutoresizingMaskIntoConstraints = false
         buttonEdit.widthAnchor.constraint(equalToConstant: .greatestFiniteMagnitude).isActive = true
-        buttonEdit.topAnchor.constraint(equalTo: labelStatusNetwork.bottomAnchor, constant: 6).isActive = true
-        buttonEdit.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 18).isActive = true
-        buttonEdit.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -18).isActive = true
+        buttonEdit.topAnchor.constraint(equalTo: labelStatusNetwork.bottomAnchor, constant: 15).isActive = true
+        buttonEdit.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Metric.buttonLeftAnchor).isActive = true
+        buttonEdit.rightAnchor.constraint(equalTo: view.rightAnchor, constant: Metric.buttonRightAnchor).isActive = true
+        
         
         
     }
@@ -134,6 +141,26 @@ extension ViewController {
         static let labelFullNameSize: CGFloat = 18
         static let parentStackViewSpacing: CGFloat = 30
         static let buttonTextSize: CGFloat = 18
+        static let uIImageViewWidth: CGFloat = 80
+        static let uIImageViewHeight: CGFloat = 80
+        static let imageBorderWidth: CGFloat = 1
+        static let uIImageViewX: CGFloat = 0
+        static let uIImageViewY: CGFloat = 0
+        static let labelStatusColorRed: Int = 131
+        static let labelStatusColorGreen: Int = 168
+        static let labelStatusColorBlue: Int = 229
+        static let labelStatusNColorRed: Int = 122
+        static let labelStatusNColorGreen: Int = 122
+        static let labelStatusNColorBlue: Int = 124
+        static let buttonRadius: CGFloat = 10
+        static let pSVLeadingAnchor: CGFloat = 18
+        static let pSVtrailingAnchor: CGFloat = -18
+        static let pSVtopAnchor: CGFloat = 5
+        static let labelTopAnchor: CGFloat = 6
+        static let labelTrailingAnchor: CGFloat = -36
+        static let labelLeftAnchor: CGFloat = 115
+        static let buttonLeftAnchor: CGFloat = 18
+        static let buttonRightAnchor: CGFloat = -18
     }
 
     enum Strings {
@@ -141,6 +168,7 @@ extension ViewController {
         static let status = "Установить статус"
         static let statusNetwork = "online"
         static let textButton = "Редактировать"
+        static let nameImage = "profile"
 
     }
 }
