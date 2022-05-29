@@ -5,6 +5,8 @@
 //  Created by Александр Алешин on 22.05.2022.
 //
 import UIKit
+import SwiftUI
+
 
 class ViewController: UIViewController  {
 
@@ -20,6 +22,14 @@ class ViewController: UIViewController  {
         stackView.axis = .horizontal
         stackView.spacing = 40
         stackView.backgroundColor = .red
+        return stackView
+    }()
+    
+    private lazy var buttonStakView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 5
+        stackView.backgroundColor = .green
         return stackView
     }()
     
@@ -61,20 +71,18 @@ class ViewController: UIViewController  {
         return label
     }()
     
-    private lazy var buttonEdit = createButton(with: Strings.textButton, titleColor: .white, background: .darkGray)
-    private lazy var buddin1 = createButton(with: "История", titleColor: .red, background: .blue)
-    private lazy var buddin2 = createButton(with: "Запись", titleColor: .red, background: .blue)
-    private lazy var buddin3 = createButton(with: "Фото", titleColor: .red, background: .blue)
-    private lazy var buddin4 = createButton(with: "Клип", titleColor: .red, background: .blue)
-  
-
+    private lazy var buttonEdit = createButton(with: Strings.textButton, titleColor: .white, background: .darkGray, image: "", font: Int(Metric.buttonTextSizeEdit))
+    private lazy var buttonHistory = createButton(with: "История", titleColor: UIColor(red: Metric.labelStatusNColorRed, green: Metric.labelStatusNColorGreen, blue: Metric.labelStatusNColorBlue), background: .blue, image: "", font: Int(Metric.buttonTextSizeMenu))
+    private lazy var buttonRecord = createButton(with: "Запись", titleColor: UIColor(red: Metric.labelStatusNColorRed, green: Metric.labelStatusNColorGreen, blue: Metric.labelStatusNColorBlue), background: .blue, image: "", font: Int(Metric.buttonTextSizeMenu))
+    private lazy var buttonPhote = createButton(with: "Фото", titleColor: UIColor(red: Metric.labelStatusNColorRed, green: Metric.labelStatusNColorGreen, blue: Metric.labelStatusNColorBlue), background: .blue, image: "", font: Int(Metric.buttonTextSizeMenu))
+    private lazy var buttonClip = createButton(with: "Клип", titleColor: UIColor(red: Metric.labelStatusNColorRed, green: Metric.labelStatusNColorGreen, blue: Metric.labelStatusNColorBlue), background: .blue, image: "", font: Int(Metric.buttonTextSizeMenu))
+    
 // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupHierarchy()
         setupLayout()
-        buttonEdit.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     }
 
 // MARK: - Settings
@@ -86,52 +94,35 @@ class ViewController: UIViewController  {
         perentStackView.addArrangedSubview(labelStatusNetwork)
         view.addSubview(buttonEdit)
         view.addSubview(tabbatStackView)
-        tabbatStackView.addArrangedSubview(buddin1)
-        tabbatStackView.addArrangedSubview(buddin2)
-        tabbatStackView.addArrangedSubview(buddin3)
-        tabbatStackView.addArrangedSubview(buddin4)
+//        tabbatStackView.addArrangedSubview(buttonHistory)
+        tabbatStackView.addArrangedSubview(buttonRecord)
+        tabbatStackView.addArrangedSubview(buttonPhote)
+        tabbatStackView.addArrangedSubview(buttonClip)
+        tabbatStackView.addArrangedSubview(buttonStakView)
+        
+//        buttonStakView.addArrangedSubview(buttonHistory) // сюда нужно создать иконку и поместить
+        buttonStakView.addArrangedSubview(buttonHistory)
+//        buttonStakView.addArrangedSubview(buttonRecord)
+//        buttonStakView.addArrangedSubview(buttonPhote)
+//        buttonStakView.addArrangedSubview(buttonClip)
     }
 
     private func setupView() {
        view.backgroundColor = .black
     }
     
-//    private func createButtonTabBar(with title: String, titleColor: UIColor, image: UIImageView) -> UIButton{
-//        let button = UIButton(type: .system)
-//        button.setTitle(title, for: .normal)
-//        button.setTitleColor(titleColor, for: .normal)
-//        button.titleLabel?.font = .systemFont(ofSize: Metric.buttonTextSize, weight: .medium)
-//        button.image = image
-//        button.layer.cornerRadius = Metric.buttonRadius
-//
-//        return button
-//    }
-    
-    private func createButton(with title: String, titleColor: UIColor, background: UIColor) -> UIButton {
+    private func createButton(with title: String, titleColor: UIColor, background: UIColor, image: String, font: Int) -> UIButton {
         let button = UIButton(type: .system)
         button.setTitle(title, for: .normal)
         button.setTitleColor(titleColor, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: Metric.buttonTextSize, weight: .medium)
+        let size: Int = font
+        button.titleLabel?.font = .systemFont(ofSize: CGFloat(size), weight: .medium)
         button.backgroundColor = background
         button.layer.cornerRadius = Metric.buttonRadius
-        
+        let namedIcon: String = image
+        button.setImage(UIImage(named: namedIcon), for: .normal)
         return button
     }
-    
-    // MARK: Create TABBARCONTROLLER
-    @objc func didTapButton() {
-        let tabBarVC = UITabBarController()
-        
-        let vc1 = FirstViewController()
-        let vc2 = SecondViewController()
-        let vc3 = ThirdViewController()
-        let vc4 = FirstViewController()
-        tabBarVC.setViewControllers([vc1, vc2, vc3, vc4], animated: false)
-        
-        tabBarVC.modalPresentationStyle = .fullScreen
-        present(tabBarVC, animated: true)
-    }
-    
     
     private func setupLayout() {
         imageProfile.translatesAutoresizingMaskIntoConstraints = true
@@ -182,7 +173,8 @@ extension ViewController {
         static let lavelStatus: CGFloat = 14
         static let labelFullNameSize: CGFloat = 18
         static let parentStackViewSpacing: CGFloat = 30
-        static let buttonTextSize: CGFloat = 18
+        static let buttonTextSizeEdit: CGFloat = 18
+        static let buttonTextSizeMenu: CGFloat = 16
         static let uIImageViewWidth: CGFloat = 80
         static let uIImageViewHeight: CGFloat = 80
         static let imageBorderWidth: CGFloat = 1
@@ -232,34 +224,6 @@ extension UIColor {
            blue: rgb & 0xFF
        )
    }
-}
-
-class FirstViewController: UITabBarController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .red
-
-    }
-}
-class SecondViewController: UITabBarController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .green
-
-    }
-}
-class ThirdViewController: UITabBarController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .blue
-    }
-}
-class FourthViewController: UITabBarController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .yellow
-
-    }
 }
 
 
