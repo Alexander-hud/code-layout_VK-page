@@ -84,7 +84,6 @@ class ViewController: UIViewController  {
     private lazy var buttonPhote = createButton(with: "Фото", titleColor: UIColor(red: Metric.labelStatusNColorRed, green: Metric.labelStatusNColorGreen, blue: Metric.labelStatusNColorBlue), background: .blue, image: "", font: Int(Metric.buttonTextSizeMenu))
     private lazy var buttonClip = createButton(with: "Клип", titleColor: UIColor(red: Metric.labelStatusNColorRed, green: Metric.labelStatusNColorGreen, blue: Metric.labelStatusNColorBlue), background: .blue, image: "", font: Int(Metric.buttonTextSizeMenu))
     
-    private lazy var buttonHistorys = imageIcons(with: "icon_photo")
     
 // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -103,36 +102,16 @@ class ViewController: UIViewController  {
         perentStackView.addArrangedSubview(labelStatusNetwork)
         view.addSubview(buttonEdit)
         view.addSubview(tabbatStackView)
-//        tabbatStackView.addArrangedSubview(buttonHistory)
+        
         tabbatStackView.addArrangedSubview(buttonRecord)
         tabbatStackView.addArrangedSubview(buttonPhote)
         tabbatStackView.addArrangedSubview(buttonClip)
         tabbatStackView.addArrangedSubview(buttonStakView)
         
-//        view.addSubview(buttonHistorys)// сюда нужно создать иконку и поместить
-        buttonStakView.addArrangedSubview(buttonHistorys)
-        buttonStakView.addArrangedSubview(buttonHistory)
-//        buttonStakView.addArrangedSubview(buttonRecord)
-//        buttonStakView.addArrangedSubview(buttonPhote)
-//        buttonStakView.addArrangedSubview(buttonClip)
     }
 
     private func setupView() {
        view.backgroundColor = .black
-    }
-    
-    
-    private func imageIcons(with image: String) -> UIImageView {
-        let imageHistory = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        let name: String = image
-        imageHistory.image = UIImage(named: name)
-        imageHistory.layer.borderWidth = Metric.imageBorderWidth
-        imageHistory.layer.masksToBounds = false
-        imageHistory.layer.borderColor = UIColor.black.cgColor
-        imageHistory.layer.cornerRadius = imageHistory.frame.height/2
-        imageHistory.clipsToBounds = true
-        
-        return imageHistory
     }
     
     private func createButton(with title: String, titleColor: UIColor, background: UIColor, image: String, font: Int) -> UIButton {
@@ -157,21 +136,7 @@ class ViewController: UIViewController  {
         perentStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.pSVtrailingAnchor).isActive = true
         perentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Metric.pSVtopAnchor).isActive = true
         perentStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: Metric.buttonRightAnchor).isActive = true
-        //
-        tabbatStackView.translatesAutoresizingMaskIntoConstraints = false
-        
-//        tabbatStackView.widthAnchor.constraint(equalToConstant: .greatestFiniteMagnitude).isActive = true
-        
-        tabbatStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
-
-        tabbatStackView.topAnchor.constraint(equalTo: buttonEdit.bottomAnchor, constant: Metric.buttonTopAnchor).isActive = true
-
-        tabbatStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18).isActive = true
-        
-//        tabbatStackView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: 100)
-//            .isActive = true
-        
-        //
+     
         labelFullName.topAnchor.constraint(equalTo: perentStackView.topAnchor, constant: Metric.labelTopAnchor).isActive = true
         labelFullName.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.labelTopAnchor).isActive = true
         labelFullName.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Metric.labelLeftAnchor).isActive = true
@@ -255,17 +220,4 @@ extension UIColor {
            blue: rgb & 0xFF
        )
    }
-}
-
-
-extension UIStackView {
-func horizontalAxisStack() {
-        axis = .horizontal
-        spacing = 20
-        layer.cornerRadius = 10
-        distribution = .fillEqually
-        layoutMargins = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
-        isLayoutMarginsRelativeArrangement = true
-        translatesAutoresizingMaskIntoConstraints = false
-    }
 }

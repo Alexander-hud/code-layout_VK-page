@@ -14,10 +14,10 @@
             filePath = "view_verstka/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "11"
             endingLineNumber = "11"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "ViewController"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "F317E61D-290B-4E54-86B0-72DA95D6C176 - a2f41ced0ad70cbb"
@@ -123,10 +123,10 @@
             filePath = "view_verstka/ViewController.swift"
             startingColumnNumber = "9"
             endingColumnNumber = "9"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
-            landmarkName = "Strings"
-            landmarkType = "13">
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "setupHierarchy()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
