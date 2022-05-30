@@ -18,12 +18,16 @@ class ViewController: UIViewController  {
     }()
     
     private lazy var tabbatStackView: UIStackView = {
-        let stackView = UIStackView()
+        var stackView = UIStackView()
         stackView.axis = .horizontal
+        stackView.layoutMargins = UIEdgeInsets(top: 200, left: 0, bottom: 2, right: 0)
         stackView.spacing = 40
         stackView.backgroundColor = .red
+        
         return stackView
     }()
+    
+
     
     private lazy var buttonStakView: UIStackView = {
         let stackView = UIStackView()
@@ -43,7 +47,7 @@ class ViewController: UIViewController  {
         image.clipsToBounds = true
         return image
     }()
-
+    
     private lazy var labelFullName: UILabel = {
         let label = UILabel()
         label.text = Strings.profileName
@@ -71,11 +75,16 @@ class ViewController: UIViewController  {
         return label
     }()
     
+
+    
     private lazy var buttonEdit = createButton(with: Strings.textButton, titleColor: .white, background: .darkGray, image: "", font: Int(Metric.buttonTextSizeEdit))
+    
     private lazy var buttonHistory = createButton(with: "История", titleColor: UIColor(red: Metric.labelStatusNColorRed, green: Metric.labelStatusNColorGreen, blue: Metric.labelStatusNColorBlue), background: .blue, image: "", font: Int(Metric.buttonTextSizeMenu))
     private lazy var buttonRecord = createButton(with: "Запись", titleColor: UIColor(red: Metric.labelStatusNColorRed, green: Metric.labelStatusNColorGreen, blue: Metric.labelStatusNColorBlue), background: .blue, image: "", font: Int(Metric.buttonTextSizeMenu))
     private lazy var buttonPhote = createButton(with: "Фото", titleColor: UIColor(red: Metric.labelStatusNColorRed, green: Metric.labelStatusNColorGreen, blue: Metric.labelStatusNColorBlue), background: .blue, image: "", font: Int(Metric.buttonTextSizeMenu))
     private lazy var buttonClip = createButton(with: "Клип", titleColor: UIColor(red: Metric.labelStatusNColorRed, green: Metric.labelStatusNColorGreen, blue: Metric.labelStatusNColorBlue), background: .blue, image: "", font: Int(Metric.buttonTextSizeMenu))
+    
+    private lazy var buttonHistorys = imageIcons(with: "icon_photo")
     
 // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -100,7 +109,8 @@ class ViewController: UIViewController  {
         tabbatStackView.addArrangedSubview(buttonClip)
         tabbatStackView.addArrangedSubview(buttonStakView)
         
-//        buttonStakView.addArrangedSubview(buttonHistory) // сюда нужно создать иконку и поместить
+//        view.addSubview(buttonHistorys)// сюда нужно создать иконку и поместить
+        buttonStakView.addArrangedSubview(buttonHistorys)
         buttonStakView.addArrangedSubview(buttonHistory)
 //        buttonStakView.addArrangedSubview(buttonRecord)
 //        buttonStakView.addArrangedSubview(buttonPhote)
@@ -109,6 +119,20 @@ class ViewController: UIViewController  {
 
     private func setupView() {
        view.backgroundColor = .black
+    }
+    
+    
+    private func imageIcons(with image: String) -> UIImageView {
+        let imageHistory = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        let name: String = image
+        imageHistory.image = UIImage(named: name)
+        imageHistory.layer.borderWidth = Metric.imageBorderWidth
+        imageHistory.layer.masksToBounds = false
+        imageHistory.layer.borderColor = UIColor.black.cgColor
+        imageHistory.layer.cornerRadius = imageHistory.frame.height/2
+        imageHistory.clipsToBounds = true
+        
+        return imageHistory
     }
     
     private func createButton(with title: String, titleColor: UIColor, background: UIColor, image: String, font: Int) -> UIButton {
@@ -133,14 +157,21 @@ class ViewController: UIViewController  {
         perentStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.pSVtrailingAnchor).isActive = true
         perentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Metric.pSVtopAnchor).isActive = true
         perentStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: Metric.buttonRightAnchor).isActive = true
-        
+        //
         tabbatStackView.translatesAutoresizingMaskIntoConstraints = false
-        tabbatStackView.widthAnchor.constraint(equalToConstant: .greatestFiniteMagnitude).isActive = true
-        tabbatStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-        tabbatStackView.topAnchor.constraint(equalTo: buttonEdit.bottomAnchor, constant: Metric.buttonTopAnchor).isActive = true
-        tabbatStackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Metric.buttonLeftAnchor).isActive = true
-        tabbatStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: Metric.buttonRightAnchor).isActive = true
         
+//        tabbatStackView.widthAnchor.constraint(equalToConstant: .greatestFiniteMagnitude).isActive = true
+        
+        tabbatStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
+
+        tabbatStackView.topAnchor.constraint(equalTo: buttonEdit.bottomAnchor, constant: Metric.buttonTopAnchor).isActive = true
+
+        tabbatStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18).isActive = true
+        
+//        tabbatStackView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: 100)
+//            .isActive = true
+        
+        //
         labelFullName.topAnchor.constraint(equalTo: perentStackView.topAnchor, constant: Metric.labelTopAnchor).isActive = true
         labelFullName.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.labelTopAnchor).isActive = true
         labelFullName.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Metric.labelLeftAnchor).isActive = true
@@ -160,7 +191,7 @@ class ViewController: UIViewController  {
         buttonEdit.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Metric.buttonLeftAnchor).isActive = true
         buttonEdit.rightAnchor.constraint(equalTo: view.rightAnchor, constant: Metric.buttonRightAnchor).isActive = true
         
-      
+
     }
 
 }
@@ -227,3 +258,14 @@ extension UIColor {
 }
 
 
+extension UIStackView {
+func horizontalAxisStack() {
+        axis = .horizontal
+        spacing = 20
+        layer.cornerRadius = 10
+        distribution = .fillEqually
+        layoutMargins = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
+        isLayoutMarginsRelativeArrangement = true
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+}
