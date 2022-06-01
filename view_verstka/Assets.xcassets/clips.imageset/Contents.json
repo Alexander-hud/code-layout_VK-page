@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "Снимок_экрана_2022-06-01_в_14.19.47-removebg-preview.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -9,7 +10,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "icon_photo.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

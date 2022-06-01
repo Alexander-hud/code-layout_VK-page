@@ -16,24 +16,41 @@ class ViewController: UIViewController  {
         stackView.spacing = Metric.parentStackViewSpacing
         return stackView
     }()
+
     
-    private lazy var tabbatStackView: UIStackView = {
-        var stackView = UIStackView()
+    private lazy var iconStakView: UIStackView = {
+        let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.layoutMargins = UIEdgeInsets(top: 200, left: 0, bottom: 2, right: 0)
-        stackView.spacing = 40
-        stackView.backgroundColor = .red
-        
+        stackView.spacing = 25
+        stackView.backgroundColor = .green
         return stackView
     }()
     
-
+    private lazy var imageStakView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 8
+        return stackView
+    }()
     
-    private lazy var buttonStakView: UIStackView = {
+    private lazy var imageStakViewVertical: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 5
-        stackView.backgroundColor = .green
+        stackView.spacing = 8
+        return stackView
+    }()
+    
+    private lazy var labelStakView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 27
+        return stackView
+    }()
+    
+    private lazy var labelStakViewVertical: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 21
         return stackView
     }()
     
@@ -57,6 +74,167 @@ class ViewController: UIViewController  {
         return label
     }()
     
+    private lazy var labelHistory: UILabel = {
+        let label = UILabel()
+        label.text = "История"
+        label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
+    private lazy var labelEntry: UILabel = {
+        let label = UILabel()
+        label.text = "Запись"
+        label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
+    private lazy var labelPhoto: UILabel = {
+        let label = UILabel()
+        label.text = "Фото"
+        label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
+    private lazy var labelСlip: UILabel = {
+        let label = UILabel()
+        label.text = "Клип"
+        label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
+    private lazy var labelQuestions: UILabel = {
+        let label = UILabel()
+        label.text = "Вопросы"
+        label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
+    private lazy var labelSubscribers: UILabel = {
+        let label = UILabel()
+        label.text = "202 подписчика"
+        label.textColor = .gray
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
+    private lazy var labelStudies: UILabel = {
+        let label = UILabel()
+        label.text = "Указать место учебы"
+        label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
+    private lazy var labelWork: UILabel = {
+        let label = UILabel()
+        label.text = "Указать место работы"
+        label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
+    private lazy var labelLink: UILabel = {
+        let label = UILabel()
+        label.text = "Ссылка на профиль >"
+        label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
+    private lazy var labelInfo: UILabel = {
+        let label = UILabel()
+        label.text = "Подробная информация"
+        label.textColor = .white
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
+    private lazy var iconHistory: UIImageView = {
+        let imageName = "photo"
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        return imageView
+    }()
+    
+    private lazy var iconNil: UIImageView = {
+        let imageName = ""
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 0, height: 50)
+        return imageView
+    }()
+    
+    private lazy var iconNil3: UIImageView = {
+        let imageName = ""
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 0, height: 50)
+        return imageView
+    }()
+    
+    private lazy var iconNil4: UIImageView = {
+        let imageName = ""
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 0, height: 50)
+        return imageView
+    }()
+    
+    private lazy var iconEntry: UIImageView = {
+        let imageName = "entry"
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        return imageView
+    }()
+    
+    private lazy var iconNil2: UIImageView = {
+        let imageName = ""
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 0, height: 50)
+        return imageView
+    }()
+    
+    private lazy var iconPhoto: UIImageView = {
+        let imageName = "history"
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        return imageView
+    }()
+    
+    private lazy var iconСlip: UIImageView = {
+        let imageName = "clips"
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        return imageView
+    }()
+    
+    private lazy var iconQuestions: UIImageView = {
+        let imageName = "entry"
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        return imageView
+    }()
+    
     private lazy var labelStatus: UILabel = {
         let label = UILabel()
         label.text = Strings.status
@@ -75,16 +253,56 @@ class ViewController: UIViewController  {
         return label
     }()
     
+    private lazy var iconWifi: UIImageView = {
+        let imageName = "photo"
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        return imageView
+    }()
+    
+    private lazy var iconLesson: UIImageView = {
+        let imageName = "photo"
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        return imageView
+    }()
+    
+    private lazy var iconWork: UIImageView = {
+        let imageName = "photo"
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        return imageView
+    }()
+    
+    private lazy var iconLink: UIImageView = {
+        let imageName = "photo"
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        return imageView
+    }()
+    
+    private lazy var iconInfo: UIImageView = {
+        let imageName = "photo"
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        return imageView
+    }()
+    
 
     
     private lazy var buttonEdit = createButton(with: Strings.textButton, titleColor: .white, background: .darkGray, image: "", font: Int(Metric.buttonTextSizeEdit))
-    
-    private lazy var buttonHistory = createButton(with: "История", titleColor: UIColor(red: Metric.labelStatusNColorRed, green: Metric.labelStatusNColorGreen, blue: Metric.labelStatusNColorBlue), background: .blue, image: "", font: Int(Metric.buttonTextSizeMenu))
-    private lazy var buttonRecord = createButton(with: "Запись", titleColor: UIColor(red: Metric.labelStatusNColorRed, green: Metric.labelStatusNColorGreen, blue: Metric.labelStatusNColorBlue), background: .blue, image: "", font: Int(Metric.buttonTextSizeMenu))
-    private lazy var buttonPhote = createButton(with: "Фото", titleColor: UIColor(red: Metric.labelStatusNColorRed, green: Metric.labelStatusNColorGreen, blue: Metric.labelStatusNColorBlue), background: .blue, image: "", font: Int(Metric.buttonTextSizeMenu))
-    private lazy var buttonClip = createButton(with: "Клип", titleColor: UIColor(red: Metric.labelStatusNColorRed, green: Metric.labelStatusNColorGreen, blue: Metric.labelStatusNColorBlue), background: .blue, image: "", font: Int(Metric.buttonTextSizeMenu))
-    
-    private lazy var buttonHistorys = imageIcons(with: "icon_photo")
+
+    private lazy var icon1 = iconImage(name: "icon_photo")
     
 // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -95,6 +313,48 @@ class ViewController: UIViewController  {
     }
 
 // MARK: - Settings
+    private func someImageViewConstraints() {
+        iconHistory.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        iconHistory.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        iconEntry.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        iconEntry.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        iconPhoto.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        iconPhoto.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        iconСlip.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        iconСlip.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        iconQuestions.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        iconQuestions.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        iconNil.widthAnchor.constraint(equalToConstant: 15).isActive = true
+        iconNil.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        iconNil2.widthAnchor.constraint(equalToConstant: 5).isActive = true
+        iconNil2.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        iconNil3.widthAnchor.constraint(equalToConstant: 5).isActive = true
+        iconNil3.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        iconNil4.widthAnchor.constraint(equalToConstant: 0).isActive = true
+        iconNil4.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        iconWifi.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        iconWifi.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        iconLesson.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        iconLesson.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        iconWork.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        iconWork.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        iconLink.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        iconLink.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        iconInfo.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        iconInfo.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        
+        }
+    
     private func setupHierarchy() {
         view.addSubview(perentStackView)
         perentStackView.addArrangedSubview(imageProfile)
@@ -102,37 +362,45 @@ class ViewController: UIViewController  {
         perentStackView.addArrangedSubview(labelStatus)
         perentStackView.addArrangedSubview(labelStatusNetwork)
         view.addSubview(buttonEdit)
-        view.addSubview(tabbatStackView)
-//        tabbatStackView.addArrangedSubview(buttonHistory)
-        tabbatStackView.addArrangedSubview(buttonRecord)
-        tabbatStackView.addArrangedSubview(buttonPhote)
-        tabbatStackView.addArrangedSubview(buttonClip)
-        tabbatStackView.addArrangedSubview(buttonStakView)
         
-//        view.addSubview(buttonHistorys)// сюда нужно создать иконку и поместить
-        buttonStakView.addArrangedSubview(buttonHistorys)
-        buttonStakView.addArrangedSubview(buttonHistory)
-//        buttonStakView.addArrangedSubview(buttonRecord)
-//        buttonStakView.addArrangedSubview(buttonPhote)
-//        buttonStakView.addArrangedSubview(buttonClip)
+        
+        view.addSubview(labelStakView)
+        labelStakView.addArrangedSubview(labelHistory)
+        labelStakView.addArrangedSubview(labelEntry)
+        labelStakView.addArrangedSubview(labelPhoto)
+        labelStakView.addArrangedSubview(labelСlip)
+        labelStakView.addArrangedSubview(labelQuestions)
+
+        view.addSubview(imageStakView)
+        imageStakView.addArrangedSubview(iconHistory)
+        imageStakView.addArrangedSubview(iconNil)
+        imageStakView.addArrangedSubview(iconEntry)
+        imageStakView.addArrangedSubview(iconNil2)
+        imageStakView.addArrangedSubview(iconPhoto)
+        imageStakView.addArrangedSubview(iconNil4)
+        imageStakView.addArrangedSubview(iconСlip)
+        imageStakView.addArrangedSubview(iconNil3)
+        imageStakView.addArrangedSubview(iconQuestions)
+        
+        view.addSubview(imageStakViewVertical)
+        imageStakViewVertical.addArrangedSubview(iconWifi)
+        imageStakViewVertical.addArrangedSubview(iconLesson)
+        imageStakViewVertical.addArrangedSubview(iconWork)
+        imageStakViewVertical.addArrangedSubview(iconLink)
+        imageStakViewVertical.addArrangedSubview(iconInfo)
+    
+        view.addSubview(labelStakViewVertical)
+        labelStakViewVertical.addArrangedSubview(labelSubscribers)
+        labelStakViewVertical.addArrangedSubview(labelStudies)
+        labelStakViewVertical.addArrangedSubview(labelWork)
+        labelStakViewVertical.addArrangedSubview(labelLink)
+        labelStakViewVertical.addArrangedSubview(labelInfo)
+        
+        someImageViewConstraints()
     }
 
     private func setupView() {
        view.backgroundColor = .black
-    }
-    
-    
-    private func imageIcons(with image: String) -> UIImageView {
-        let imageHistory = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        let name: String = image
-        imageHistory.image = UIImage(named: name)
-        imageHistory.layer.borderWidth = Metric.imageBorderWidth
-        imageHistory.layer.masksToBounds = false
-        imageHistory.layer.borderColor = UIColor.black.cgColor
-        imageHistory.layer.cornerRadius = imageHistory.frame.height/2
-        imageHistory.clipsToBounds = true
-        
-        return imageHistory
     }
     
     private func createButton(with title: String, titleColor: UIColor, background: UIColor, image: String, font: Int) -> UIButton {
@@ -147,6 +415,14 @@ class ViewController: UIViewController  {
         button.setImage(UIImage(named: namedIcon), for: .normal)
         return button
     }
+    private func iconImage(name: String) -> UIImageView {
+        let imageName: String = name
+        let images = UIImageView(frame: CGRect(x: Metric.uIImageViewX, y: Metric.uIImageViewY, width: 50, height: 50))
+        images.image = UIImage(named: imageName)
+        images.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        
+        return images
+    }
     
     private func setupLayout() {
         imageProfile.translatesAutoresizingMaskIntoConstraints = true
@@ -157,21 +433,7 @@ class ViewController: UIViewController  {
         perentStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.pSVtrailingAnchor).isActive = true
         perentStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Metric.pSVtopAnchor).isActive = true
         perentStackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: Metric.buttonRightAnchor).isActive = true
-        //
-        tabbatStackView.translatesAutoresizingMaskIntoConstraints = false
-        
-//        tabbatStackView.widthAnchor.constraint(equalToConstant: .greatestFiniteMagnitude).isActive = true
-        
-        tabbatStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
-
-        tabbatStackView.topAnchor.constraint(equalTo: buttonEdit.bottomAnchor, constant: Metric.buttonTopAnchor).isActive = true
-
-        tabbatStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18).isActive = true
-        
-//        tabbatStackView.heightAnchor.constraint(equalTo: view.heightAnchor, constant: 100)
-//            .isActive = true
-        
-        //
+     
         labelFullName.topAnchor.constraint(equalTo: perentStackView.topAnchor, constant: Metric.labelTopAnchor).isActive = true
         labelFullName.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.labelTopAnchor).isActive = true
         labelFullName.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Metric.labelLeftAnchor).isActive = true
@@ -191,7 +453,33 @@ class ViewController: UIViewController  {
         buttonEdit.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Metric.buttonLeftAnchor).isActive = true
         buttonEdit.rightAnchor.constraint(equalTo: view.rightAnchor, constant: Metric.buttonRightAnchor).isActive = true
         
+        imageStakView.translatesAutoresizingMaskIntoConstraints = false
+        imageStakView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
+        imageStakView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.pSVtrailingAnchor).isActive = true
+        
+        imageStakView.topAnchor.constraint(equalTo: buttonEdit.bottomAnchor, constant: 20).isActive = true
+        imageStakView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -25).isActive = true
+        
+        labelStakView.translatesAutoresizingMaskIntoConstraints = false
+        labelStakView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Metric.pSVLeadingAnchor).isActive = true
+        labelStakView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.pSVtrailingAnchor).isActive = true
+        
+        labelStakView.topAnchor.constraint(equalTo: imageStakView.bottomAnchor, constant: 5).isActive = true
+        labelStakView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: Metric.buttonRightAnchor).isActive = true
 
+        imageStakViewVertical.translatesAutoresizingMaskIntoConstraints = false
+        imageStakViewVertical.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 5).isActive = true
+        imageStakViewVertical.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.pSVtrailingAnchor).isActive = true
+        imageStakViewVertical.topAnchor.constraint(equalTo: labelStakView.bottomAnchor, constant: 20).isActive = true
+        imageStakViewVertical.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -325).isActive = true
+        
+        labelStakViewVertical.translatesAutoresizingMaskIntoConstraints = false
+        labelStakViewVertical.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Metric.pSVLeadingAnchor).isActive = true
+        labelStakViewVertical.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.pSVtrailingAnchor).isActive = true
+        
+        labelStakViewVertical.leftAnchor.constraint(equalTo: imageStakViewVertical.leftAnchor, constant: 55).isActive = true
+//        labelStakViewHorizontal.rightAnchor.constraint(equalTo: view.rightAnchor, constant: Metric.buttonRightAnchor).isActive = true
+        labelStakViewVertical.topAnchor.constraint(equalTo: labelStakView.bottomAnchor, constant: 25).isActive = true
     }
 
 }
@@ -255,17 +543,4 @@ extension UIColor {
            blue: rgb & 0xFF
        )
    }
-}
-
-
-extension UIStackView {
-func horizontalAxisStack() {
-        axis = .horizontal
-        spacing = 20
-        layer.cornerRadius = 10
-        distribution = .fillEqually
-        layoutMargins = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
-        isLayoutMarginsRelativeArrangement = true
-        translatesAutoresizingMaskIntoConstraints = false
-    }
 }
