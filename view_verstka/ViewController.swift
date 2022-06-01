@@ -30,15 +30,27 @@ class ViewController: UIViewController  {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.spacing = 8
-//        stackView.backgroundColor = .green
+        return stackView
+    }()
+    
+    private lazy var imageStakViewVertical: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 8
         return stackView
     }()
     
     private lazy var labelStakView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 26
-//        stackView.backgroundColor = .green
+        stackView.spacing = 27
+        return stackView
+    }()
+    
+    private lazy var labelStakViewVertical: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 21
         return stackView
     }()
     
@@ -65,7 +77,6 @@ class ViewController: UIViewController  {
     private lazy var labelHistory: UILabel = {
         let label = UILabel()
         label.text = "История"
-//        label.textAlignment = .center
         label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
         label.font = .boldSystemFont(ofSize: 14)
         return label
@@ -74,7 +85,6 @@ class ViewController: UIViewController  {
     private lazy var labelEntry: UILabel = {
         let label = UILabel()
         label.text = "Запись"
-//        label.textAlignment = .center
         label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
         label.font = .boldSystemFont(ofSize: 14)
         return label
@@ -83,7 +93,6 @@ class ViewController: UIViewController  {
     private lazy var labelPhoto: UILabel = {
         let label = UILabel()
         label.text = "Фото"
-//        label.textAlignment = .center
         label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
         label.font = .boldSystemFont(ofSize: 14)
         return label
@@ -92,7 +101,6 @@ class ViewController: UIViewController  {
     private lazy var labelСlip: UILabel = {
         let label = UILabel()
         label.text = "Клип"
-//        label.textAlignment = .center
         label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
         label.font = .boldSystemFont(ofSize: 14)
         return label
@@ -101,14 +109,53 @@ class ViewController: UIViewController  {
     private lazy var labelQuestions: UILabel = {
         let label = UILabel()
         label.text = "Вопросы"
-//        label.textAlignment = .center
         label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
         label.font = .boldSystemFont(ofSize: 14)
         return label
     }()
     
+    private lazy var labelSubscribers: UILabel = {
+        let label = UILabel()
+        label.text = "202 подписчика"
+        label.textColor = .gray
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
+    private lazy var labelStudies: UILabel = {
+        let label = UILabel()
+        label.text = "Указать место учебы"
+        label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
+    private lazy var labelWork: UILabel = {
+        let label = UILabel()
+        label.text = "Указать место работы"
+        label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
+    private lazy var labelLink: UILabel = {
+        let label = UILabel()
+        label.text = "Ссылка на профиль >"
+        label.textColor = UIColor(red: Metric.labelStatusColorRed, green: Metric.labelStatusColorGreen, blue: Metric.labelStatusColorBlue)
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
+    private lazy var labelInfo: UILabel = {
+        let label = UILabel()
+        label.text = "Подробная информация"
+        label.textColor = .white
+        label.font = .boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
     private lazy var iconHistory: UIImageView = {
-        let imageName = "icon_photo"
+        let imageName = "photo"
         let image = UIImage(named: imageName)
         var imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -144,7 +191,7 @@ class ViewController: UIViewController  {
     }()
     
     private lazy var iconEntry: UIImageView = {
-        let imageName = "icon_photo"
+        let imageName = "entry"
         let image = UIImage(named: imageName)
         var imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -162,7 +209,7 @@ class ViewController: UIViewController  {
     }()
     
     private lazy var iconPhoto: UIImageView = {
-        let imageName = "icon_photo"
+        let imageName = "history"
         let image = UIImage(named: imageName)
         var imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -171,7 +218,7 @@ class ViewController: UIViewController  {
     }()
     
     private lazy var iconСlip: UIImageView = {
-        let imageName = "icon_photo"
+        let imageName = "clips"
         let image = UIImage(named: imageName)
         var imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -180,7 +227,7 @@ class ViewController: UIViewController  {
     }()
     
     private lazy var iconQuestions: UIImageView = {
-        let imageName = "icon_photo"
+        let imageName = "entry"
         let image = UIImage(named: imageName)
         var imageView = UIImageView(image: image)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -206,6 +253,51 @@ class ViewController: UIViewController  {
         return label
     }()
     
+    private lazy var iconWifi: UIImageView = {
+        let imageName = "photo"
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        return imageView
+    }()
+    
+    private lazy var iconLesson: UIImageView = {
+        let imageName = "photo"
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        return imageView
+    }()
+    
+    private lazy var iconWork: UIImageView = {
+        let imageName = "photo"
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        return imageView
+    }()
+    
+    private lazy var iconLink: UIImageView = {
+        let imageName = "photo"
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        return imageView
+    }()
+    
+    private lazy var iconInfo: UIImageView = {
+        let imageName = "photo"
+        let image = UIImage(named: imageName)
+        var imageView = UIImageView(image: image)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        return imageView
+    }()
+    
 
     
     private lazy var buttonEdit = createButton(with: Strings.textButton, titleColor: .white, background: .darkGray, image: "", font: Int(Metric.buttonTextSizeEdit))
@@ -223,31 +315,44 @@ class ViewController: UIViewController  {
 // MARK: - Settings
     private func someImageViewConstraints() {
         iconHistory.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        iconHistory.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        iconHistory.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         iconEntry.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        iconEntry.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        iconEntry.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         iconPhoto.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        iconPhoto.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        iconPhoto.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         iconСlip.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        iconСlip.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        iconСlip.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         iconQuestions.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        iconQuestions.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        iconQuestions.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         iconNil.widthAnchor.constraint(equalToConstant: 15).isActive = true
-        iconNil.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        iconNil.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         iconNil2.widthAnchor.constraint(equalToConstant: 5).isActive = true
-        iconNil2.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        iconNil2.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         iconNil3.widthAnchor.constraint(equalToConstant: 5).isActive = true
-        iconNil3.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        iconNil3.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
         iconNil4.widthAnchor.constraint(equalToConstant: 0).isActive = true
-        iconNil4.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        iconNil4.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        iconWifi.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        iconWifi.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        iconLesson.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        iconLesson.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        iconWork.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        iconWork.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        iconLink.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        iconLink.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        iconInfo.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        iconInfo.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+        
         }
     
     private func setupHierarchy() {
@@ -276,8 +381,22 @@ class ViewController: UIViewController  {
         imageStakView.addArrangedSubview(iconСlip)
         imageStakView.addArrangedSubview(iconNil3)
         imageStakView.addArrangedSubview(iconQuestions)
-        someImageViewConstraints()
         
+        view.addSubview(imageStakViewVertical)
+        imageStakViewVertical.addArrangedSubview(iconWifi)
+        imageStakViewVertical.addArrangedSubview(iconLesson)
+        imageStakViewVertical.addArrangedSubview(iconWork)
+        imageStakViewVertical.addArrangedSubview(iconLink)
+        imageStakViewVertical.addArrangedSubview(iconInfo)
+    
+        view.addSubview(labelStakViewVertical)
+        labelStakViewVertical.addArrangedSubview(labelSubscribers)
+        labelStakViewVertical.addArrangedSubview(labelStudies)
+        labelStakViewVertical.addArrangedSubview(labelWork)
+        labelStakViewVertical.addArrangedSubview(labelLink)
+        labelStakViewVertical.addArrangedSubview(labelInfo)
+        
+        someImageViewConstraints()
     }
 
     private func setupView() {
@@ -341,7 +460,6 @@ class ViewController: UIViewController  {
         imageStakView.topAnchor.constraint(equalTo: buttonEdit.bottomAnchor, constant: 20).isActive = true
         imageStakView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -25).isActive = true
         
-        
         labelStakView.translatesAutoresizingMaskIntoConstraints = false
         labelStakView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Metric.pSVLeadingAnchor).isActive = true
         labelStakView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.pSVtrailingAnchor).isActive = true
@@ -349,7 +467,19 @@ class ViewController: UIViewController  {
         labelStakView.topAnchor.constraint(equalTo: imageStakView.bottomAnchor, constant: 5).isActive = true
         labelStakView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: Metric.buttonRightAnchor).isActive = true
 
-       
+        imageStakViewVertical.translatesAutoresizingMaskIntoConstraints = false
+        imageStakViewVertical.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 5).isActive = true
+        imageStakViewVertical.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.pSVtrailingAnchor).isActive = true
+        imageStakViewVertical.topAnchor.constraint(equalTo: labelStakView.bottomAnchor, constant: 20).isActive = true
+        imageStakViewVertical.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -325).isActive = true
+        
+        labelStakViewVertical.translatesAutoresizingMaskIntoConstraints = false
+        labelStakViewVertical.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: Metric.pSVLeadingAnchor).isActive = true
+        labelStakViewVertical.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: Metric.pSVtrailingAnchor).isActive = true
+        
+        labelStakViewVertical.leftAnchor.constraint(equalTo: imageStakViewVertical.leftAnchor, constant: 55).isActive = true
+//        labelStakViewHorizontal.rightAnchor.constraint(equalTo: view.rightAnchor, constant: Metric.buttonRightAnchor).isActive = true
+        labelStakViewVertical.topAnchor.constraint(equalTo: labelStakView.bottomAnchor, constant: 25).isActive = true
     }
 
 }
