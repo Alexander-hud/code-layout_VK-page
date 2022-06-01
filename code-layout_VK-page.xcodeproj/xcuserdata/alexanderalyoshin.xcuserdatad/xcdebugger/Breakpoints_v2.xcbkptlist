@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "A5873D31-52C3-40EA-A2E6-8F20022B8E55"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5F7671F9-245F-4F8F-8973-5BA4A181EADC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "view_verstka/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "485"
+            endingLineNumber = "485">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F317E61D-290B-4E54-86B0-72DA95D6C176"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "view_verstka/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "F317E61D-290B-4E54-86B0-72DA95D6C176 - a2f41ced0ad70cbb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "view_verstka.ViewCotroller.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; view_verstka.ViewCotroller"
+                  moduleName = "view_verstka"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexanderalyoshin/Desktop/view_verstka/view_verstka/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "F317E61D-290B-4E54-86B0-72DA95D6C176 - bee18c39da8dcb01"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "view_verstka.ViewCotroller.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; view_verstka.ViewCotroller"
+                  moduleName = "view_verstka"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexanderalyoshin/Desktop/view_verstka/view_verstka/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "F317E61D-290B-4E54-86B0-72DA95D6C176 - a6cd01fb04d8ee54"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "view_verstka.ViewCotroller.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;view_verstka.ViewCotroller&gt;"
+                  moduleName = "view_verstka"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexanderalyoshin/Desktop/view_verstka/view_verstka/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "F317E61D-290B-4E54-86B0-72DA95D6C176 - 8592357acf630a58"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "view_verstka.ViewCotroller.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;view_verstka.ViewCotroller&gt;"
+                  moduleName = "view_verstka"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexanderalyoshin/Desktop/view_verstka/view_verstka/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "F317E61D-290B-4E54-86B0-72DA95D6C176 - 91c19c6c20e27763"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "view_verstka.ViewCotroller.__deallocating_deinit"
+                  moduleName = "view_verstka"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/alexanderalyoshin/Desktop/view_verstka/view_verstka/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
